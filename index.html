@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <!--Link Icons-->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <!--Barra de navegação-->
+    <header>
+        <div class="logo">
+            <!--Logo-->
+            <img src="./assets/img/logo.png" class="logo-img">
+        </div>
+    </header>
+
+    <div class="container-buscar">
+        <div class="buscar">
+            <div class="icon">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 18C14.4183 18 18 14.4183 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18Z"
+                        stroke="#F2F0E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M20 20L15.65 15.65" stroke="#F2F0E5" stroke-width="3" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+            <div class="busca">
+                <input type="text" placeholder="Buscar">
+            </div>
+        </div>
+
+        <!--Identação de qual pagina o usuario esta no momento-->
+        <div class="identação" id="identação">
+            <div class="txt-id" id="home-id">
+                <h1>Home</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="tool-bar">
+            <!--Home-->
+            <div class="tool">
+                <div class="icon-tool">
+                    <svg width="22" height="24" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M2 9L11 2L20 9V20C20 20.5304 19.7893 21.0391 19.4142 21.4142C19.0391 21.7893 18.5304 22 18 22H4C3.46957 22 2.96086 21.7893 2.58579 21.4142C2.21071 21.0391 2 20.5304 2 20V9Z"
+                            stroke="#F2F0E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="txt-tool">
+                    <h1>Home</h1>
+                </div>
+                <div class="icon-tool">
+                    <span class="material-symbols-outlined">
+                        keyboard_arrow_down
+                    </span>
+                </div>
+            </div>
+
+            <!--Proposta Comercial-->
+            <div class="tool" id="crm">
+                <div class="icon-tool">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M18 2H4C2.89543 2 2 2.89543 2 4V18C2 19.1046 2.89543 20 4 20H18C19.1046 20 20 19.1046 20 18V4C20 2.89543 19.1046 2 18 2Z"
+                            stroke="#F2F0E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M2 8H20" stroke="#F2F0E5" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M8 20V8" stroke="#F2F0E5" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="txt-tool">
+                    <h1>CRM</h1>
+                </div>
+                <div class="icon-tool">
+                    <span class="material-symbols-outlined">
+                        keyboard_arrow_down
+                    </span>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="tool-tabs" id="tool-tabs">
+                <div id="proposta" class="content">
+                    <h2>Proposta Comercial</h2>
+                </div>
+                <div id="links" class="content">
+                    <h2>Links</h2>
+                </div>
+                <div id="leads" class="content">
+                    <h2>Leads</h2>
+                </div>
+            </div>
+
+
+            <!--Pagina de Vendas-->
+            <div class="tool">
+                <div class="icon-tool">
+                    <svg width="26" height="16" viewBox="0 0 26 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 2L14.5 11.5L9.5 6.5L2 14" stroke="#F2F0E5" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <path d="M18 2H24V8" stroke="#F2F0E5" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+
+                </div>
+                <div class="txt-tool">
+                    <h1>Paginas de Vendas</h1>
+                </div>
+                <div class="icon-tool">
+                    <span class="material-symbols-outlined">
+                        keyboard_arrow_down
+                    </span>
+                </div>
+            </div>
+
+            <!--Pagina de Afiliados-->
+            <div class="tool">
+                <div class="icon-tool">
+                    <svg width="26" height="22" viewBox="0 0 26 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M17 20V18C17 16.9391 16.5786 15.9217 15.8284 15.1716C15.0783 14.4214 14.0609 14 13 14H6C4.93913 14 3.92172 14.4214 3.17157 15.1716C2.42143 15.9217 2 16.9391 2 18V20"
+                            stroke="#F2F0E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M9.5 10C11.7091 10 13.5 8.20914 13.5 6C13.5 3.79086 11.7091 2 9.5 2C7.29086 2 5.5 3.79086 5.5 6C5.5 8.20914 7.29086 10 9.5 10Z"
+                            stroke="#F2F0E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M18 10L20 12L24 8" stroke="#F2F0E5" stroke-width="3" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="txt-tool">
+                    <h1>Paginas de Afiliados</h1>
+                </div>
+                <div class="icon-tool">
+                    <span class="material-symbols-outlined">
+                        keyboard_arrow_down
+                    </span>
+                </div>
+            </div>
+
+            <!--Futuras Ferramenta-->
+            <div class="tool">
+                <div class="icon-tool">
+                    <svg width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13.1111 2L2 15.2H12L10.8889 24L22 10.8H12L13.1111 2Z" stroke="#F2F0E5"
+                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <div class="txt-tool">
+                    <h1>Futuras Ferramentas</h1>
+                </div>
+                <div class="icon-tool">
+                    <span class="material-symbols-outlined">
+                        keyboard_arrow_down
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!--Minhas Paginas-->
+        <div class="container-page" id="page-proposal">
+            <div class="page-txt">
+                <h1>Minhas páginas</h1>
+                <button type="button" id="add-page">Criar página</button>
+            </div>
+
+            <!--Lista de Propostas Criadas-->
+
+            <div class="form-client">
+                <div class="client-div">
+                    <div class="name-client">
+                        <h1>Nome do cliente:</h1>
+                        <h1 id="client-name"></h1>
+                    </div>
+                    <div class="name-client">
+                        <h1>Nome da pagina:</h1>
+                        <h1 id="page-name"></h1>
+                    </div>
+                </div>
+
+
+                <div class="client-btn">
+                    <button type="button">Editar</button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!--CRM > Proposta Comercial-->
+        <div class="container-page" id="container-proposal-form">
+            <div class="proposal-form" id="proposal-form">
+                <div class="form">
+                    <div class="form-proposal">
+                        <div class="form-proposal-txt">
+                            <h1 class="active" id="conteudo">Conteúdo</h1>
+                            <h1 class="not-active" id="aparencia">Aparência</h1>
+                        </div>
+                        <div class="form-proposal-txt-title">
+                            <h1 class="title">Dados Iniciais </h1>
+                        </div>
+
+                        <div class="container-proposal">
+
+                            <div class="proposal">
+                                <div class="proposal-div-form">
+                                    <div class="proposal-div-form-list">
+                                        <div class="name-client-proposal">
+                                            <h1 id="client-txt">Nome do cliente:</h1>
+                                            <input type="text">
+                                        </div>
+        
+                                        <div class="name-client-proposal">
+                                            <h1 id="client-txt">Nome da solução:</h1>
+                                            <input type="text">
+                                        </div>
+        
+                                        <div class="name-client-proposal">
+                                            <h1>Descrição:</h1>
+                                            <textarea></textarea>
+                                        </div>
+                                    </div>
+        
+                                    <div class="proposal-div-form-list">
+                                        <div class="name-client-proposal">
+                                            <h1 id="client-txt">URL da imagem:</h1>
+                                            <input type="url">
+                                        </div>
+    
+                                        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M22 42C33.0457 42 42 33.0457 42 22C42 10.9543 33.0457 2 22 2C10.9543 2 2 10.9543 2 22C2 33.0457 10.9543 42 22 42Z" stroke="#F2F0E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M22 14V30" stroke="#F2F0E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M14 22H30" stroke="#F2F0E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            
+                                    </div>
+                            </div>
+
+                            <div class="form-proposal-txt-subtitle">
+                                <h1 class="title">Sobre mim </h1>
+                            </div>
+
+                            <div class="proposal-div-form">
+                                <div class="proposal-div-form-list">
+                                    <div class="name-client-proposal">
+                                        <h1 id="client-txt">Nome do cliente:</h1>
+                                        <input type="text">
+                                    </div>
+    
+                                    <div class="name-client-proposal">
+                                        <h1 id="client-txt">Nome da solução:</h1>
+                                        <input type="text">
+                                    </div>
+    
+                                    <div class="name-client-proposal">
+                                        <h1>Descrição:</h1>
+                                        <textarea></textarea>
+                                    </div>
+                                </div>
+    
+                                <div class="proposal-div-form-list">
+                                    <div class="name-client-proposal">
+                                        <h1 id="client-txt">URL da imagem:</h1>
+                                        <input type="url">
+                                    </div>
+
+                                    <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M22 42C33.0457 42 42 33.0457 42 22C42 10.9543 33.0457 2 22 2C10.9543 2 2 10.9543 2 22C2 33.0457 10.9543 42 22 42Z" stroke="#F2F0E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M22 14V30" stroke="#F2F0E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M14 22H30" stroke="#F2F0E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        
+                                </div>
+                        </div>
+
+                        
+                        <div class="form-proposal-txt-subtitle">
+                            <h1 class="title">Depoimentos </h1>
+                        </div>
+
+
+                        <div class="proposal-div-form">
+                            <div class="proposal-div-form-list">
+                                <div class="name-client-proposal">
+                                    <h1 id="client-txt">Nome do cliente:</h1>
+                                    <input type="text">
+                                </div>
+
+                                <div class="name-client-proposal">
+                                    <h1 id="client-txt">Nome da solução:</h1>
+                                    <input type="text">
+                                </div>
+
+                                <div class="name-client-proposal">
+                                    <h1>Descrição:</h1>
+                                    <textarea></textarea>
+                                </div>
+                            </div>
+
+                            <div class="proposal-div-form-list">
+                                <div class="name-client-proposal">
+                                    <h1 id="client-txt">URL da imagem:</h1>
+                                    <input type="url">
+                                </div>
+
+                                <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22 42C33.0457 42 42 33.0457 42 22C42 10.9543 33.0457 2 22 2C10.9543 2 2 10.9543 2 22C2 33.0457 10.9543 42 22 42Z" stroke="#F2F0E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M22 14V30" stroke="#F2F0E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M14 22H30" stroke="#F2F0E5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    
+                            </div>
+                    </div>
+
+                            
+                        </div>
+
+                        <div class="phone">
+                            <img src="./assets/img/frame celular 1.png" alt="">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--Script-->
+            <script src="./js/script.js"></script>
+</body>
+
+</html>

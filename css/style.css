@@ -1,0 +1,485 @@
+/* Importação da fonte Sora do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
+/* Reset de margens e paddings para todos os elementos e aplicação da fonte */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Sora", sans-serif;
+}
+
+/* Estilo para o corpo da página */
+body {
+    width: 100%;
+    background-color: #1A1A1A;
+}
+
+/* Estilo para o cabeçalho */
+header {
+    width: 100%;
+    height: 128px;
+    background-color: #242423;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para o logotipo */
+.logo {
+    width: 150px;
+    height: 100%;
+    margin-left: 132px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container de busca */
+.container-buscar {
+    width: 100%;
+    height: 96px;
+    background-color: #242423;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Estilo para o campo de busca */
+.buscar {
+    width: 465px;
+    height: 96px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo para os ícones */
+.icon,
+.icon-tool {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* Estilo para o texto dos ícones */
+.icon span,
+.icon-tool {
+    font-size: 18px;
+    color: #F2F0E5;
+}
+
+/* Campo de busca */
+.busca {
+    width: 465px;
+}
+
+.busca input::placeholder {
+    font-size: 18px;
+    color: #F2F0E5;
+}
+
+.busca input {
+    width: 100%;
+    height: 64px;
+    border: none;
+    background-color: #242423;
+}
+
+/* Container de indentação */
+.identação {
+    width: 1455px;
+    height: 96px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    padding-left: 20px;
+}
+
+.identação h1 {
+    font-size: 18px;
+    color: #F2F0E5;
+    font-weight: 400;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Container principal */
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Barra de ferramentas */
+.tool-bar {
+    width: 465px;
+    height: 100vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #242423;
+}
+
+.tool {
+    width: 465px;
+    height: 64px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.txt-tool {
+    width: 337px;
+    cursor: pointer;
+}
+
+.txt-tool h1 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #F2F0E5;
+    line-height: 21.78px;
+}
+
+/* Estilo para telefone */
+.phone {
+    width: 436px;
+    height: 958px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.phone img {
+    width: 346px;
+    border-radius: 43px 0px 0px 0px;
+}
+
+/* Tabs de ferramentas */
+.tool-tabs {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Conteúdo */
+.content {
+    width: 465px;
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content h2 {
+    margin-left: 64px;
+    font-size: 18px;
+    color: #F2F0E5;
+    font-weight: 800;
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+}
+
+.content h2:hover {
+    color: #F67B1C;
+}
+
+/* Proposta */
+#page-proposal {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Texto da página */
+.page-txt {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 70px;
+}
+
+.page-txt h1 {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 38.73px;
+    color: #F67B1C;
+    margin-left: 35px;
+}
+
+.page-txt button {
+    width: 250px;
+    height: 64px;
+    border-radius: 8px;
+    background-color: #242423;
+    color: #F67B1C;
+    font-size: 24px;
+    font-weight: bolder;
+    text-align: center;
+    border: none;
+    box-shadow: 5px 10px 10px 0px #00000040;
+    margin-right: 35px;
+    cursor: pointer;
+}
+
+/* Formulário do cliente */
+.form-client {
+    width: 95%;
+    height: 185px;
+    display: flex;
+    flex-direction: row;
+    background-color: #242423;
+    border-radius: 8px;
+    box-shadow: 5px 10px 10px 0px #00000040;
+    margin-top: 25px;
+}
+
+/* Div do cliente */
+.client-div {
+    width: 75%;
+    height: 185px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.name-client {
+    margin-left: 35px;
+}
+
+.name-client h1 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #F2F0E5;
+}
+
+/* Botão do cliente */
+.client-btn {
+    width: 25%;
+    height: 185px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+}
+
+.client-btn button {
+    margin-right: 30px;
+    margin-bottom: 20px;
+    width: 250px;
+    height: 64px;
+    border-radius: 8px;
+    opacity: 0px;
+    background-color: #242423;
+    color: #F67B1C;
+    font-size: 24px;
+    font-weight: bolder;
+    text-align: center;
+    border: none;
+    box-shadow: 5px 10px 10px 0px #00000040;
+    cursor: pointer;
+}
+
+/* Formulário de proposta */
+.proposal-form {
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.form-proposal {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1A1A1A;
+}
+
+.container-proposal {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 95%;
+}
+
+/* Div da proposta */
+.proposal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.proposal-div {
+    width: 95%;
+    height: 185px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: #242423;
+    border-radius: 8px;
+    box-shadow: 5px 10px 10px 0px #00000040;
+    margin-top: 25px;
+    gap: 25px;
+}
+
+/* Formulário de proposta */
+#container-proposal-form {
+    display: flex;
+}
+
+.form-proposal-txt {
+    width: 100%;
+    margin-left: 45px;
+    margin-top: 36px;
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+}
+
+.form-proposal-txt h1 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.78px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Título do formulário de proposta */
+.form-proposal-txt-title {
+    width: 100%;
+    margin-left: 49px;
+    margin-top: 36px;
+    display: flex;
+    flex-direction: row;
+    gap: 35px;
+}
+
+.form-proposal-txt-title h1 {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 38.73px;
+    color: #F67B1C;
+}
+
+.form-proposal-txt-subtitle h1 {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 38.73px;
+    color: #F67B1C;
+    margin-top: 25px;
+}
+
+/* Texto do cliente */
+#client-txt {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#client-txt h1 {
+    width: 160px;
+    height: 32px;
+}
+
+/*
+
+ Estilo para o nome do cliente na proposta */
+.name-client-proposal {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-start;
+    width: 100%;
+    gap: 20px;
+}
+
+.name-client-proposal h1 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.78px;
+    text-align: right;
+}
+
+.name-client-proposal textarea {
+    width: 250px;
+    height: 120px;
+    border-radius: 8px;
+}
+
+.name-client-proposal input {
+    width: 250px;
+    height: 32px;
+    border-radius: 8px;
+}
+
+/* Formulário da proposta */
+.proposal-div-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 314px;
+    margin-top: 20px;
+    border-radius: 13px;
+    background-color: #242423;
+    box-shadow: 5px 10px 10px 0px #00000040;
+    gap: 10px;
+}
+
+/* Lista de formulários da proposta */
+.proposal-div-form-list {
+    width: 50%;
+    height: 80%;
+    display: flex;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.name-client-proposal {
+    margin-right: 25px;
+}
+
+.proposal-div-form-list svg {
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+.name-client-proposal h1 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #F2F0E5;
+}
+
+/* Classes de estado ativo e não ativo */
+.active {
+    color: #F67B1C;
+}
+
+.not-active {
+    color: #F2F0E5;
+}
