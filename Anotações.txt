@@ -1,0 +1,4 @@
+Finalizar a logica de abrir e fechar as abas
+Criar a pagina de aparencia
+
+Clico na Proposta e ele abre a pagina, se eu clicar de novo ele deve fechar todas que estão aberta e abrir a Proposta

@@ -147,21 +147,51 @@ header {
 
 /* Estilo para telefone */
 .phone {
-    width: 436px;
-    height: 958px;
+    height: 100vw;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-left: -35px;
+
+}
+
+.image-container{
+    position: sticky;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay {
+    position: absolute;
+    width: 343px;
+    height: 710px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 10px;
+    border-radius: 50px;
+    z-index: -1;
+    background-color: #F2F0E5;
+    color: rgb(255, 255, 255); /* Exemplo de cor do texto */
+}
+
+.proposalData{
+    width: 80%;
+    margin-top: 45px;
+    color: #1A1A1A;
 }
 
 .phone img {
     width: 346px;
-    border-radius: 43px 0px 0px 0px;
 }
 
 /* Tabs de ferramentas */
 .tool-tabs {
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 
@@ -295,21 +325,22 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+
 }
 
 .form {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
 }
 
 .form-proposal {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #1A1A1A;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .container-proposal {
@@ -343,7 +374,11 @@ header {
 
 /* Formulário de proposta */
 #container-proposal-form {
-    display: flex;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .form-proposal-txt {
@@ -439,8 +474,8 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 314px;
+    width: 980px;
+    height: 384px;
     margin-top: 20px;
     border-radius: 13px;
     background-color: #242423;
@@ -458,6 +493,18 @@ header {
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-between;
+}
+
+.proposal-div-form-list-video {
+    width: 50%;
+    height: 80%;
+    display: flex;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 15px;
 }
 
 .name-client-proposal {
@@ -483,3 +530,38 @@ header {
 .not-active {
     color: #F2F0E5;
 }
+
+.div-form{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-proposal{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.btn-proposal button{
+width: 250px;
+height: 64px;
+gap: 0px;
+border: none;
+border-radius: 8px;
+opacity: 0px;
+color: #F67B1C;
+font-size: 24px;
+font-weight: 800;
+line-height: 29.05px;
+text-align: center;
+background-color: #242423;
+box-shadow: 5px 10px 10px 0px #00000040;
+}
+
