@@ -167,8 +167,9 @@ header {
 
 .overlay {
     position: absolute;
-    width: 343px;
+    width: 330px;
     height: 710px;
+    /* margin-top: 5px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -176,7 +177,7 @@ header {
     border-radius: 50px;
     z-index: -1;
     background-color: #F2F0E5;
-    color: rgb(255, 255, 255); /* Exemplo de cor do texto */
+    color: rgb(255, 255, 255);
 }
 
 .proposalData{
@@ -187,6 +188,7 @@ header {
 
 .phone img {
     width: 346px;
+    z-index: -1;
 }
 
 /* Tabs de ferramentas */
@@ -563,5 +565,25 @@ line-height: 29.05px;
 text-align: center;
 background-color: #242423;
 box-shadow: 5px 10px 10px 0px #00000040;
+}
+
+.form-list-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+.container-phone{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 500px; /* Ajuste a altura máxima conforme necessário */
+    overflow-y: auto;
+    padding-right: 15px; /* Para evitar que a barra de rolagem sobreponha o conteúdo */
+    box-sizing: border-box;
 }
 

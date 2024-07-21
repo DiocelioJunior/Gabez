@@ -15,7 +15,7 @@ crmTool.addEventListener('click', function() {
 
 const prop = {
     pageProposta: false,
-    pageNovaProposta: true
+    pageNovaProposta: false
 };
 
 // Função para definir todos os valores do objeto como false
@@ -58,14 +58,36 @@ const formInputs = [
 ];
 
 formInputs.forEach(inputId => {
-    document.getElementById(inputId).addEventListener('input', formObj);
+    document.getElementById(inputId).addEventListener('input', function() {
+        const formData = {
+            clientName: document.getElementById('clientName').value,
+            solutionName: document.getElementById('solutionName').value,
+            description: document.getElementById('description').value,
+            imageUrl: document.getElementById('imageUrl').value,
+            aboutClientName: document.getElementById('aboutClientName').value,
+            aboutSolutionName: document.getElementById('aboutSolutionName').value,
+            aboutDescription: document.getElementById('aboutDescription').value,
+            aboutImageUrl: document.getElementById('aboutImageUrl').value,
+            testimonialClientName: document.getElementById('testimonialClientName').value,
+            testimonialSolutionName: document.getElementById('testimonialSolutionName').value,
+            testimonialDescription: document.getElementById('testimonialDescription').value,
+            testimonialImageUrl: document.getElementById('testimonialImageUrl').value,
+            testimonialVideoUrl: document.getElementById('testimonialVideoUrl').value,
+            offerClientName: document.getElementById('offerClientName').value,
+            offerSolutionName: document.getElementById('offerSolutionName').value,
+            offerDescription: document.getElementById('offerDescription').value,
+            offerImageUrl: document.getElementById('offerImageUrl').value
+        };
+        displayProposalData(formData);
+    });
 });
 
-btnSubmit.addEventListener('click', function() {
+// Intercepta o envio do formulário
+btnSubmit.addEventListener('click', function(event) {
+    event.preventDefault(); // Impede o envio padrão do formulário
     formObj();
 });
 
-// Função para coletar os dados do formulário
 function formObj() {
     const formData = {
         clientName: document.getElementById('clientName').value,
@@ -94,45 +116,105 @@ function formObj() {
         },
         body: JSON.stringify(formData)
     })
-    .then(response => response.text())
+    .then(response => response.json())
     .then(data => {
-        console.log(data);
-        displayProposalData(formData); // Supondo que você tenha essa função para exibir os dados
+        if (data.message) {
+            alert(`Proposta salva com sucesso! Veja sua proposta aqui: ${data.proposal_link}`);
+        }
+        if (data.proposal_link) {
+            const linkContainer = document.getElementById('link-container');
+            const linkDiv = document.createElement('div');
+            linkDiv.innerHTML = `<a href="${data.proposal_link}" target="_blank">Ver Proposta</a>`;
+            linkContainer.appendChild(linkDiv);
+        }
     })
     .catch(error => console.error('Error:', error));
-    
-    // Exibe o objeto no console (ou envie para o servidor)
-    console.log(formData);
-    displayProposalData(formData);
+
+    alert("Formulario Salvo")
+    loadProposals()
 }
 
-// Função para exibir os dados da proposta
 function displayProposalData(formData) {
-    const proposalDataDiv = document.getElementById('proposalData');
+    const proposalDataDiv = document.getElementById('proposalDataPhone');
     proposalDataDiv.innerHTML = `
-        <h2>Informações do Cliente</h2>
-        <p><strong>Nome do Cliente:</strong> ${formData.clientName}</p>
-        <p><strong>Nome da Solução:</strong> ${formData.solutionName}</p>
-        <p><strong>Descrição:</strong> ${formData.description}</p>
-        <p><strong>URL da Imagem:</strong> ${formData.imageUrl}</p>
+        <div class="container-phone mt-5">
+            <div class="intro-phone mb-4">
+                <h1>Olá, <span>${formData.clientName}</span>. Esta é</h1>
+                <h2>Proposta<br> Comercial</h2>
+            </div>
 
-        <h2>Sobre Mim</h2>
-        <p><strong>Título:</strong> ${formData.aboutClientName}</p>
-        <p><strong>Sub-Título:</strong> ${formData.aboutSolutionName}</p>
-        <p><strong>Parágrafo:</strong> ${formData.aboutDescription}</p>
-        <p><strong>URL da Imagem:</strong> ${formData.aboutImageUrl}</p>
+            <div class="proposal-phone mt-4">
+                <h2>Detalhes da Proposta</h2>
+                <p><strong>Nome da Solução:</strong> ${formData.solutionName}</p>
+                <p><strong>Descrição:</strong> ${formData.description}</p>
+            </div>
 
-        <h2>Depoimentos</h2>
-        <p><strong>Título:</strong> ${formData.testimonialClientName}</p>
-        <p><strong>Sub-Título:</strong> ${formData.testimonialSolutionName}</p>
-        <p><strong>Parágrafo:</strong> ${formData.testimonialDescription}</p>
-        <p><strong>URL da Imagem:</strong> ${formData.testimonialImageUrl}</p>
-        <p><strong>URL do Vídeo:</strong> ${formData.testimonialVideoUrl}</p>
+            <div class="about-phone mt-4">
+                <h2>Sobre Mim</h2>
+                <div class="about-container-phone">
+                    <div>
+                        <p>${formData.aboutClientName}</p>
+                        <p>${formData.aboutSolutionName}</p>
+                        <p>${formData.aboutDescription}</p>
+                    </div>
+                    <div>
+                        <p><img src="${formData.aboutImageUrl}" alt="Imagem sobre mim" class="img-fluid"></p>
+                    </div>
+                </div>
+            </div>
 
-        <h2>Ofertas</h2>
-        <p><strong>Título:</strong> ${formData.offerClientName}</p>
-        <p><strong>Sub-Título:</strong> ${formData.offerSolutionName}</p>
-        <p><strong>Parágrafo:</strong> ${formData.offerDescription}</p>
-        <p><strong>URL da Imagem:</strong> ${formData.offerImageUrl}</p>
+            <div class="testimonials-phone mt-4">
+                <h2>Depoimentos</h2>
+                <h3>${formData.testimonialClientName}</h3>
+                <p>${formData.testimonialSolutionName}</p>
+                <p>${formData.testimonialDescription}</p>
+                <p><a href="${formData.testimonialVideoUrl}" class="btn btn-primary">Ver Vídeo</a></p>
+            </div>
+
+            <div class="off-phone mt-4">
+                <h2>Ofertas</h2>
+                <p>${formData.offerClientName}</p>
+                <p>${formData.offerSolutionName}</p>
+                <p>${formData.offerDescription}</p>
+                <p><img src="${formData.offerImageUrl}" alt="Imagem da oferta" class="img-fluid"></p>
+            </div>
+        </div>
     `;
 }
+
+async function loadProposals() {
+    const response = await fetch('./get_proposals.php'); // URL para o arquivo PHP que retorna as propostas
+    const proposals = await response.json();
+
+    const proposalsContainer = document.getElementById('proposals-container');
+
+    if (proposals.length === 0) {
+        proposalsContainer.innerHTML = '<p>Nenhuma proposta encontrada.</p>';
+    } else {
+        proposals.forEach(proposal => {
+            const proposalDiv = document.createElement('div');
+            proposalDiv.classList.add('form-client');
+            proposalDiv.innerHTML = `
+                <div class="client-div">
+                    <div class="name-client">
+                        <h1>Nome do Cliente:</h1>
+                        <h1>${proposal.clientName}</h1>
+                    </div>
+                    <div class="name-client">
+                        <h1>Nome da Página:</h1>
+                        <h1>${proposal.solutionName}</h1>
+                    </div>
+                </div>
+                <div class="client-btn">
+                    <button type="button" onclick="window.location.href='view_proposal.php/${proposal.username}/${proposal.id}'">Ver Proposta</button>
+                    <button type="button">Editar</button>
+                </div>
+            `;
+
+            proposalsContainer.appendChild(proposalDiv);
+        });
+    }
+}
+
+// Carregar propostas ao iniciar a página
+window.onload = loadProposals;

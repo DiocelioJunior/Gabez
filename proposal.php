@@ -1,11 +1,42 @@
-Finalizar a logica de abrir e fechar as abas
-Criar a pagina de aparencia
+<?php
+// Configurações do banco de dados
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "user_database";
 
-Clico na Proposta e ele abre a pagina, se eu clicar de novo ele deve fechar todas que estão aberta e abrir a Proposta
+// Conectar ao banco de dados
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-Mudar o HTML e colocar require em tudo
+// Verificar conexão
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
+}
 
-Fazer a lista ser exibida
+// Obter o UUID da URL
+$uuid = $_GET['uuid'];
+
+// Preparar a declaração SQL
+$stmt = $conn->prepare("SELECT * FROM propostas WHERE uuid = ?");
+$stmt->bind_param("s", $uuid);
+
+// Executar a declaração
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Verificar se a proposta foi encontrada
+if ($result->num_rows > 0) {
+    $proposal = $result->fetch_assoc();
+} else {
+    die("Proposta não encontrada.");
+}
+
+// Fechar a declaração
+$stmt->close();
+
+// Fechar a conexão
+$conn->close();
+?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -18,30 +49,24 @@ Fazer a lista ser exibida
 </head>
 <body>
     <div class="container mt-5">
-        <div class="intro mb-4">
-            <h1>Olá, <span>Diow<?php echo htmlspecialchars($proposal['clientName']); ?></span>. Esta é</h1>
-            <h2>Proposta<br> Comercial</h2>
+        <div class="mb-4">
+            <h1>Olá, <?php echo htmlspecialchars($proposal['clientName']); ?>. Esta é</h1>
+            <h2>Proposta Comercial</h2>
         </div>
         
-        <div class="proposal mt-4">
+        <div class="mt-4">
             <h2>Detalhes da Proposta</h2>
             <p><strong>Nome da Solução:</strong> <?php echo htmlspecialchars($proposal['solutionName']); ?></p>
             <p><strong>Descrição:</strong> <?php echo htmlspecialchars($proposal['description']); ?></p>
-            <img src="<?php echo htmlspecialchars($proposal['imageUrl']); ?>" alt="Imagem da Proposta" class="img-fluid">
+            <p><strong>URL da Imagem:</strong> <img src="<?php echo htmlspecialchars($proposal['imageUrl']); ?>" alt="Imagem da Proposta" class="img-fluid"></p>
         </div>
 
-        <div class="about mt-4">
+        <div class="mt-4">
             <h2>Sobre Mim</h2>
-            <div class="about-container">
-                <div>
-                    <p><?php echo htmlspecialchars($proposal['aboutClientName']); ?></p>
-                    <p><?php echo htmlspecialchars($proposal['aboutSolutionName']); ?></p>
-                    <p><?php echo htmlspecialchars($proposal['aboutDescription']); ?></p>
-                </div>
-                <div>
-                    <p><img src="<?php echo htmlspecialchars($proposal['aboutImageUrl']); ?>" alt="Imagem sobre mim" class="img-fluid"></p>
-                </div>
-            </div>
+            <p><strong>Título:</strong> <?php echo htmlspecialchars($proposal['aboutClientName']); ?></p>
+            <p><strong>Sub-Título:</strong> <?php echo htmlspecialchars($proposal['aboutSolutionName']); ?></p>
+            <p><strong>Parágrafo:</strong> <?php echo htmlspecialchars($proposal['aboutDescription']); ?></p>
+            <p><strong>URL da Imagem:</strong> <img src="<?php echo htmlspecialchars($proposal['aboutImageUrl']); ?>" alt="Imagem sobre mim" class="img-fluid"></p>
         </div>
 
         <div class="mt-4">

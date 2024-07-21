@@ -2,20 +2,30 @@
 // Incluir arquivo de configuração
 include 'config.php';
 
-// Pegar dados do formulário
-$name = $_POST['name'];
-$email = $_POST['email'];
-$phone = $_POST['phone'];
-$date_of_birth = $_POST['date_of_birth'];
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+// Verificar se os dados do formulário foram enviados
+if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['date_of_birth']) && isset($_POST['password'])) {
+    // Pegar dados do formulário
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $date_of_birth = $_POST['date_of_birth'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-// Inserir dados na tabela
-$sql = "INSERT INTO users (name, email, phone, date_of_birth, password) VALUES ('$name', '$email', '$phone', '$date_of_birth', '$password')";
+    // Preparar e vincular
+    $stmt = $conn->prepare("INSERT INTO users (username, email, phone, date_of_birth, password) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $username, $email, $phone, $date_of_birth, $password);
 
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    // Executar a declaração
+    if ($stmt->execute() === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $stmt->error;
+    }
+
+    // Fechar a declaração e a conexão
+    $stmt->close();
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Please fill in all fields.";
 }
 
 $conn->close();

@@ -2,21 +2,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
 </head>
 <body>
-    <h2>Register</h2>
     <form action="register_process.php" method="post">
-        <label for="name">Name:</label>
-        <input type="text" name="name" required><br>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
         <label for="email">Email:</label>
-        <input type="email" name="email" required><br>
+        <input type="email" id="email" name="email" required><br><br>
+
         <label for="phone">Phone:</label>
-        <input type="text" name="phone"><br>
+        <input type="text" id="phone" name="phone" required><br><br>
+
         <label for="date_of_birth">Date of Birth:</label>
-        <input type="date" name="date_of_birth"><br>
+        <input type="date" id="date_of_birth" name="date_of_birth" required><br><br>
+
         <label for="password">Password:</label>
-        <input type="password" name="password" required><br>
+        <input type="password" id="password" name="password" required><br><br>
+
         <input type="submit" value="Register">
     </form>
 </body>

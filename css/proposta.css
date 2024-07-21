@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.intro{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 250px;
+}
+
+span{
+    color: orange;
+    font-size: 38px;
+    font-weight: bolder;
+}
+
+.intro h1{
+    font-size: 32px;
+}
+
+.intro h2{
+    font-size: 48px;
+}
+
+h2{
+    color: orange;
+    font-weight: bolder;
+}
+
+.proposal{
+    width: 100%;
+    height: 100%;
+}
+
+.proposal img{
+ background-color: gray;
+ display: flex;
+ width: 250px;
+ height: 250px;
+}
+
+
+.about img{
+    background-color: gray;
+    display: flex;
+    width: 300px;
+    height: 300px;
+}
+
+.about-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.about-container div{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonials{
+    background-color: red;
+    width: 100%;
+    height: 100%;
+}
+
+
+.off img{
+    background-color: gray;
+    display: flex;
+    width: 300px;
+    height: 300px;
+}

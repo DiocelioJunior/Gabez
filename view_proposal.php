@@ -1,11 +1,31 @@
-Finalizar a logica de abrir e fechar as abas
-Criar a pagina de aparencia
+<?php
+include 'config.php';
 
-Clico na Proposta e ele abre a pagina, se eu clicar de novo ele deve fechar todas que estão aberta e abrir a Proposta
+// Extrair dados da URL
+$url_path = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
+$username = $url_path[2]; // username
+$proposal_id = $url_path[3]; // proposal_id
 
-Mudar o HTML e colocar require em tudo
+// Debugging
+echo "Username: $username<br>";
+echo "Proposal ID: $proposal_id<br>";
 
-Fazer a lista ser exibida
+// Preparar a consulta
+$stmt = $conn->prepare("SELECT * FROM proposals WHERE id = ? AND user_id = (SELECT id FROM users WHERE username = ?)");
+$stmt->bind_param("is", $proposal_id, $username);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows > 0) {
+    $proposal = $result->fetch_assoc();
+} else {
+    die("Proposta não encontrada. URL: $username/$proposal_id");
+}
+
+// Fechar a conexão
+$stmt->close();
+$conn->close();
+?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -19,7 +39,7 @@ Fazer a lista ser exibida
 <body>
     <div class="container mt-5">
         <div class="intro mb-4">
-            <h1>Olá, <span>Diow<?php echo htmlspecialchars($proposal['clientName']); ?></span>. Esta é</h1>
+            <h1>Olá, <span><?php echo htmlspecialchars($proposal['clientName']); ?></span>. Esta é</h1>
             <h2>Proposta<br> Comercial</h2>
         </div>
         
@@ -27,7 +47,6 @@ Fazer a lista ser exibida
             <h2>Detalhes da Proposta</h2>
             <p><strong>Nome da Solução:</strong> <?php echo htmlspecialchars($proposal['solutionName']); ?></p>
             <p><strong>Descrição:</strong> <?php echo htmlspecialchars($proposal['description']); ?></p>
-            <img src="<?php echo htmlspecialchars($proposal['imageUrl']); ?>" alt="Imagem da Proposta" class="img-fluid">
         </div>
 
         <div class="about mt-4">
@@ -44,21 +63,20 @@ Fazer a lista ser exibida
             </div>
         </div>
 
-        <div class="mt-4">
+        <div class="testimonials mt-4">
             <h2>Depoimentos</h2>
-            <p><strong>Título:</strong> <?php echo htmlspecialchars($proposal['testimonialClientName']); ?></p>
-            <p><strong>Sub-Título:</strong> <?php echo htmlspecialchars($proposal['testimonialSolutionName']); ?></p>
-            <p><strong>Parágrafo:</strong> <?php echo htmlspecialchars($proposal['testimonialDescription']); ?></p>
-            <p><strong>URL da Imagem:</strong> <img src="<?php echo htmlspecialchars($proposal['testimonialImageUrl']); ?>" alt="Imagem do depoimento" class="img-fluid"></p>
-            <p><strong>URL do Vídeo:</strong> <a href="<?php echo htmlspecialchars($proposal['testimonialVideoUrl']); ?>" class="btn btn-primary">Ver Vídeo</a></p>
+            <p><?php echo htmlspecialchars($proposal['testimonialClientName']); ?></p>
+            <p><?php echo htmlspecialchars($proposal['testimonialSolutionName']); ?></p>
+            <p><?php echo htmlspecialchars($proposal['testimonialDescription']); ?></p>
+            <p><a href="<?php echo htmlspecialchars($proposal['testimonialVideoUrl']); ?>" class="btn btn-primary">Ver Vídeo</a></p>
         </div>
 
-        <div class="mt-4">
+        <div class="off mt-4">
             <h2>Ofertas</h2>
-            <p><strong>Título:</strong> <?php echo htmlspecialchars($proposal['offerClientName']); ?></p>
-            <p><strong>Sub-Título:</strong> <?php echo htmlspecialchars($proposal['offerSolutionName']); ?></p>
-            <p><strong>Parágrafo:</strong> <?php echo htmlspecialchars($proposal['offerDescription']); ?></p>
-            <p><strong>URL da Imagem:</strong> <img src="<?php echo htmlspecialchars($proposal['offerImageUrl']); ?>" alt="Imagem da oferta" class="img-fluid"></p>
+            <p><?php echo htmlspecialchars($proposal['offerClientName']); ?></p>
+            <p><?php echo htmlspecialchars($proposal['offerSolutionName']); ?></p>
+            <p><?php echo htmlspecialchars($proposal['offerDescription']); ?></p>
+            <p><img src="<?php echo htmlspecialchars($proposal['offerImageUrl']); ?>" alt="Imagem da oferta" class="img-fluid"></p>
         </div>
     </div>
 
